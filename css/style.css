@@ -1,0 +1,163 @@
+.body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #fec81e;    
+    background-image: url(../images/Footer.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;    
+}
+.footer {    
+    width: 100%;
+    text-align: center;
+ }
+.vh90 {
+    height: 90vh;
+}
+
+/* Nav Bar Extras =============================== */
+.nav-link.active {
+    background-color:#ff9900;
+    -webkit-text-fill-color: black;
+}
+.list-group-item {
+    background-color: #feca1e;
+    text-decoration-color: 414999;
+    z-index: 100;
+}
+.list-group-item-action:hover {
+ background-color: #ff9900;
+}
+.navbar {
+    transition: top 0.5s ease;
+    background-color: #e3b41b;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}  
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+.sidebar .active {
+border-radius: 5px;
+box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}  
+.sidebar-sticky {
+position: relative;
+top: 0;
+height: calc(100vh - 48px);
+padding-top: 0.5rem;
+overflow-x: hidden;
+overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+  
+
+/*TODO::Nav stuff not used remove and test at end*/
+.navbarExtra {
+    background-color: #feca1e;
+    text-decoration-color: 414999;
+    z-index: 100;
+} 
+.custom-toggler.navbar-toggler {
+    border-color: rgb(255, 125, 78)
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,125,78, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.navbar-opacity {
+    opacity: 0.7;
+}
+.nav-text {
+    text-decoration: #3f479a;
+}
+.form-control {
+    margin: 0px 5px 0px 5px;
+}
+.nav-item {
+    -webkit-text-fill-color: white;    
+    background: rgba(255, 255, 255, 0.349);    
+    margin: 0px 5px 0px 5px;
+}
+
+/*padding ========================================= */
+.padding-top-100 {
+    padding-top: 100px;
+}
+.padding-top-50 {
+    padding-top: 50px;
+}
+.padding-top-10 {
+    padding-top: 10px;
+}
+.padding-top-20 {
+    padding-top: 20px;
+}
+.padding-top-25 {
+    padding-top: 25px;
+}
+.padding-bottom-20 {
+    padding-bottom: 20px;
+}
+.margin-15 {
+    margin:15px;
+}
+.margin-50 {
+    margin:50px;
+}
+@media (min-width: 990px) {
+    .margin-gap-sidebar {
+        margin-left:240px;
+    }
+}
+
+/*Home Page Extras ================================== */
+.btn-home {
+    background: rgba(255, 255, 255, 0.349);
+    transition-duration: 0.4s;
+
+}
+.btn-home:hover {
+    background-color: #feca1ea6;
+}
+.img-home-logo {
+    margin: auto;    
+    display: block;
+}
+
+/*Admin Page Extras ===================================*/
+.btn-admin-nav {
+    background: rgba(255, 255, 255, 0.349);
+    transition-duration: 0.4s;
+    background-color: #e3b41b;
+    border-color: #3f479a;
+    color: black
+}
+.btn-admin-nav:hover {
+    background-color: #3f479a;
+    color: white
+}
+
+
+/*Users Extras ===================================*/
+.back-button-admin {
+    width:100%;
+}
+.viewUserProfileImg {
+    max-width:fit-content;
+    min-height: fit-content;
+    max-height: 400px;
+    max-width: inherit;
+}
+.oversizeImage {
+    width:100%;
+    height: auto;
+}
