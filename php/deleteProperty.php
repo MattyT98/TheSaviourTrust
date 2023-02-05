@@ -10,7 +10,7 @@
         require __DIR__.'/../redirects/redirect_admin.php';
     }
     else {
-        print "Error Deleting account.";
+        print "Error Deleting Property.";
         header('Location: '.$route);    
     }
 ?>

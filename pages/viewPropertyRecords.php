@@ -107,8 +107,8 @@
                                                     <td>'.$rExtraNotes.'</td>
                                                     <td>'.$rTimeSubmitted.'</td>
                                                     <td>'.$rSubmittedByStaff.'</td>
-
-                                                    <td><a href="viewPropertyRecord.php?propertyToView='.$rID.'" class="btn-admin-nav btn-block form-send-opacity font-weight-bold text-center text-decoration-none">View Record</a></td>
+                                                    
+                                                    <td><a href="viewPropertyRecord.php?recordToView='.$rID.'&propertyID='.$rPropertyID.'" class="btn-admin-nav btn-block form-send-opacity font-weight-bold text-center text-decoration-none">View Record</a></td>
                                                 </tr>
                                             ';
                                         };

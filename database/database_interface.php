@@ -175,6 +175,22 @@
             return $RESULTS->fetchAll();
         }
     }
+    function GetRecord($PDO,$recordID, $propertyID) {
+        $Records = GetAllHouseRecords($PDO, $propertyID);
+        foreach ($Records as $record) {
+            if ($record['RecordID'] == $recordID)
+                return $returnRecord = $record;
+        }
+
+        $SQL = "SELECT * FROM `records` WHERE `RecordID` = '$recordID';";
+        $RESULTS = $PDO->query($SQL);
+
+        if(!$RESULTS){
+            return [];
+        }else{
+            return $RESULTS->fetchAll();
+        }
+    }
 
     //Create Functions (INSERT)
     function CreateNewUser($PDO, $forename, $surname, $password, $adminPermission, $staffType){
@@ -260,6 +276,18 @@
         return true;
     }
 
+    function UpdateRecord($PDO, $recordID, $propertyID, $hallwayNotes, $kitchenNotes, $livingRoomNotes, $stairsAndLandingNotes, $bathroomNotes, $toiletNotes, $anyTenantsPresent, $tenantsPresent, $tenantRoomNotes, $smokeAlarmNotes, $applianceNotes, $extraNotes, $timeSubmitted, $submittedBy) {
+        $SQL = "UPDATE records SET HallwayNotes=?, KitchenNotes=?, LivingRoomNotes=?, StairsAndLandingNotes=?, BathroomNotes=?, ToiletNotes=?, AnyTenantsPresent=?, TenantsPresent=?, TenantRoomNotes=?, SmokeAlarmNotes=?, ApplianceNotes=?, ExtraNotes=? WHERE RecordID=?";
+        $stmt= $PDO->prepare($SQL);
+        $stmt->execute([$hallwayNotes, $kitchenNotes, $livingRoomNotes, $stairsAndLandingNotes, $bathroomNotes, $toiletNotes, $anyTenantsPresent, $tenantsPresent, $tenantRoomNotes, $smokeAlarmNotes, $applianceNotes, $extraNotes, $recordID]); 
+
+        $count = $stmt->rowCount();                       
+        if ($count == 0){
+            return false;
+        }
+        return true;
+    }
+
     //Delete Functions (DELETE)
     function DeleteUser($PDO, $staffToDelete)
     {
@@ -271,10 +299,17 @@
     }
     function DeleteProperty($PDO, $propertyID)
     {
+        DeletePropertyRecords($PDO, $propertyID);
         $sql = "DELETE FROM properties WHERE PropertyID=?";
         $stmt= $PDO->prepare($sql);
         $stmt->execute([$propertyID]);
-    }    
+    }
+    function DeletePropertyRecords($PDO, $propertyID)
+    {
+        $sql = "DELETE FROM records WHERE PropertyID=?";
+        $stmt= $PDO->prepare($sql);
+        $stmt->execute([$propertyID]);
+    }
     function DeleteImageFromStaffImages($PDO, $staffToDeleteUsername)
     {        
         $image = GetStaffImage($PDO, $staffToDeleteUsername);
